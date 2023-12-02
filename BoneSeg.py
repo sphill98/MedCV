@@ -1,7 +1,7 @@
 from model import *
 from Dataset import *
 from utility import *
-from DiceLoss import dice_loss
+from DiceLoss import DiceLoss
 
 import torch
 import time
@@ -103,7 +103,7 @@ class BoneSegmentation:
 
         # Loss function
         # fn_loss = nn.Binary_Cross_Entropy_loss()  # nn.MSE()  # nn.L1Loss()
-        fn_loss = dice_loss
+        fn_loss = DiceLoss()
         fn_loss = fn_loss.to(device)
 
         st_epoch = 0
